@@ -1,8 +1,14 @@
 const express = require('express');
 
 const server = express();
+server.use(express.json())
 
 const users = ['Diego', 'Claudio', 'Victor']
+
+server.get('/users', (req, res) => {
+  return res.json(users)
+});
+
 
 server.get('/teste', (req, res) => {
   const nome = req.query.nome;
@@ -14,4 +20,10 @@ server.get('/users/:index', (req, res) => {
   return res.json(users[index])
 });
 
-server.listen(3000)
+server.post('/users', (req, res) => {
+  const { name } = req.body;
+  users.push(name)
+  return res.json(users)
+});
+
+server.listen(3000);
