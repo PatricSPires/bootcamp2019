@@ -5,10 +5,16 @@ server.use(express.json())
 
 const users = ['Diego', 'Claudio', 'Victor']
 
+server.use((req, res, next) => {
+  console.time('Request')
+  console.log(`Método: ${req.method} - URL: ${req.url}`);
+  next();
+  console.timeEnd('Request')
+});
+
 server.get('/users', (req, res) => {
   return res.json(users)
 });
-
 
 server.get('/teste', (req, res) => {
   const nome = req.query.nome;
