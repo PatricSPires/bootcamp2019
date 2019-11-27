@@ -14,7 +14,14 @@ server.use((req, res, next) => {
 
 function checkUsersExists(req, res, next) {
   if(!req.body.name){
-    return res.status(400).json({ error: 'USer name is required'});
+    return res.status(400).json({ error: 'User name is required'});
+  }
+  return next();
+}
+
+function checkUserInArray(req, res, next){
+  if(!users[req.params.index]){
+    return res.status(400).json({ error: 'User does not exists'});
   }
   return next();
 }
@@ -28,7 +35,7 @@ server.get('/teste', (req, res) => {
   return res.json({ message: `Hello ${nome}`})
 });
 
-server.get('/users/:index', (req, res) => {
+server.get('/users/:index',checkUserInArray, (req, res) => {
   const { index } = req.params;
   return res.json(users[index])
 });
@@ -39,14 +46,14 @@ server.post('/users', checkUsersExists, (req, res) => {
   return res.json(users)
 });
 
-server.put('/users/:index', checkUsersExists, (req, res) => {
+server.put('/users/:index', checkUsersExists, checkUserInArray, (req, res) => {
   const { index } = req.params;
   const { name } = req.body;
   users[index] = name;
   return res.json(users)
 });
 
-server.delete('/users/:index', (req, res) => {
+server.delete('/users/:index', checkUserInArray, (req, res) => {
   const { index } = req.params;
   users.splice(index, 1);
   return res.send('Usuário excluido com sucesso.')
