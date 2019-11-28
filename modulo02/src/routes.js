@@ -5,4 +5,4 @@ routes.get('/', (req, res)=>{
   return res.json({message: "Hiiii"})
 });
 
-module.exports = routes;
+export default routes;
