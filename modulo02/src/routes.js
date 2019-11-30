@@ -1,8 +1,9 @@
 const { Router } = require('express');
+
 const routes = new Router();
 
-routes.get('/', (req, res)=>{
-  return res.json({message: "Hiiii"})
+routes.get('/', (req, res) => {
+  return res.json({ message: 'Hiiii' });
 });
 
 export default routes;
