@@ -1,9 +1,9 @@
 module.exports = {
   dialect: 'postgres',
-  host: process.env.host,
-  username: process.env.username,
-  password: process.env.password,
-  database: process.env.database,
+  host: 'localhost',
+  username: 'postgres',
+  password: '123456',
+  database: 'gobarber',
   define: {
     timestamps: true,
     underscored: true,
