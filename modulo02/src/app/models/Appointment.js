@@ -5,8 +5,6 @@ class Appointment extends Model {
     super.init(
       {
         date: Sequelize.DATE,
-        user_id: Sequelize.INTEGER,
-        provider_id: Sequelize.INTEGER,
         canceled_at: Sequelize.DATE,
       },
       {
