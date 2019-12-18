@@ -17,12 +17,12 @@ class AppointmentController {
       attributes: ['id', 'date'],
       limit: 20,
       offset: (page - 1) * 20,
-      inlcude: [
+      include: [
         {
           model: User,
           as: 'provider',
           attributes: ['id', 'name'],
-          inlcude: [
+          include: [
             {
               model: File,
               as: 'avatar',
