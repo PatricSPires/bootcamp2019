@@ -1,0 +1,11 @@
+{
+  "name": "gobarber",
+  "version": "1.0.0",
+  "description": "a backend projetc about a barbershop",
+  "main": "index.js",
+  "author": "Patric Pires",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
