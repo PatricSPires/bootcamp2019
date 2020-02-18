@@ -21,5 +21,7 @@ module.exports = {
     'prettier/prettier': 'error',
     'react/jsx-filename-extension': ['warn', { extensions: ['.jsx', '.js'] }],
     'import/prefer-default-export': 'off',
+    'react/static-property-placement': 'off',
+    'react/state-in-constructor': 'off',
   },
 };
